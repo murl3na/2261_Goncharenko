@@ -38,8 +38,8 @@ print (*l, **d) - выводит 4 элемента списка, использ
 ['Anna', 'Barbara', 'Clara', 'Diana', 'Eva', 'Flora']
 ```
 ```
-def sublist(lst, *nums);
-    return[...]
+def sublist(lst, *nums):
+    return [lst[i] for i in nums]
 ```
 ### Задание 3 **(1)**
 
@@ -120,14 +120,14 @@ print(*map(len,map(str.split,input.split(','))), sep = ',')
 7 22 11 34 17 52 26 13 40 20 10 5 16 8 4 2 1
 ```
 ```
-def gen(n);
-    while n!=1;
-    yield n
-    if n%2==0;
-        n=n//2
-    else:
-        n=3*n+1
-    yield 1
+def gen(x):
+    while x != 1:
+        yield x
+        if x % 2 == 0:
+            x = x//2
+        else:
+            x = 3*x + 1
+print (*gen(7))
 ```
 ### Задание 7 **(2)**
 
@@ -150,7 +150,15 @@ def every_other ( seq )
 2 5 11 3 8
 21
 ```
-
+```
+def every_other(seq):
+    it = iter(seq)
+    e = next(it, None)
+    while e != None:
+        yield e
+        e = next(it, None)
+        next(it, None)
+```
 
 
 ### Задание 8 **(2)**
@@ -167,6 +175,11 @@ def every_other ( seq )
 >>> nums = [...]
 >>> print(nums)
 [1, 2, 3, 4]
+```
+```
+lst = [1,'abc', 2, 3, 4, 'aa']
+nums = [x for x in lst if type(x) == int]
+print(nums)
 ```
 
 ###  Задание 9 **(2)**
@@ -186,7 +199,11 @@ def every_other ( seq )
 [4, 8, 12, 16, 20]
 [5, 10, 15, 20, 25]
 ```
-
+```
+n = 5
+tblmul = [[i*j for j in range(1, n+ 1)] for i in range(1, n+1)]
+print(*tblmul,sep='\n')
+```
 ###  Задание 10 **(1)**
 *Какие из указанных функций и методов Python соответствуют определению чистых функций?
 В случае отрицательного ответа требуется дать пояснение.*
