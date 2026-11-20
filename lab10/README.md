@@ -48,6 +48,9 @@ for (int i = 0; i < 10; i++)
     std::cout << reinterpret_cast<size_t>(&x[i]) << std::endl;
 ```
 
+<img width="54" height="108" alt="image" src="https://github.com/user-attachments/assets/833f63d8-6a2f-4edb-b118-6586003ef87a" />
+
+
 Адреса образуют арифметическую прогрессию с шагом 8, потому что элементы массива лежат в памяти подряд, а sizeof(double) = 8 байт.
 
 
