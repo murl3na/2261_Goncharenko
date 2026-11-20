@@ -19,8 +19,22 @@ int main() {
 }
 ```
 
-<img width="520" height="302" alt="image" src="https://github.com/user-attachments/assets/a7bc4ba9-756d-4934-a506-7e6dd0a9dbf8" />
+<img width="479" height="334" alt="image" src="https://github.com/user-attachments/assets/b009f065-abd3-4df0-966d-dce1b2bb292a" />
 
+```
+int bar(int x);
+
+int foo(int x) {
+    return bar(x);
+}
+int bar(int x) {
+    return x+1;
+}
+int main() {
+    foo(0);
+    return 0;
+}
+```
 
 ### Задание 2 **(1)**
 
@@ -40,6 +54,28 @@ int main(void) {
    dswap(x, y);
    std::cout << x << " " << y << std::endl;
    return 0;
+}
+```
+
+Ошибка заключается в том, что аргументы передаются в функцию по значению, а не по ссылке (или через указатели), поэтому меняются только локальные копии переменных.
+
+Как её исправить?
+Нужно изменить сигнатуру функции так, чтобы она принимала параметры по ссылке (добавить амперсанд & к типу параметров):
+
+```
+#include <iostream>
+
+void dswap(double &x, double &y) {
+    double t = x;
+    x = y;
+    y = t;
+}
+
+int main(void) {
+    double x = 1.5, y = 3.4;
+    dswap(x, y);
+    std::cout << x << " " << y << std::endl; // Выведет: 3.4 1.5
+    return 0;
 }
 ```
 
