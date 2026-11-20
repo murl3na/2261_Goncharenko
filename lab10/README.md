@@ -21,7 +21,7 @@ std::cout << *p <<' '<< *q << std::endl;
 
 Звездочка в зависимости от контекста - разыменование указателя, объявления указателя, либо знак умножения. *p и *q - объявление указателей, &a и &b - взятие адреса. 
 
-<img width="1664" height="602" alt="image" src="https://github.com/user-attachments/assets/4b0521d0-f320-45d1-b5d0-60700d55db65" />
+<img width="272" height="80" alt="image" src="https://github.com/user-attachments/assets/6a30e34b-584e-4ef1-a0c9-a55fe38916ed" />
 
 
 *Примеры программ сохраните в папке с номером задания. Скриншоты работы прикрепите к отчету.*
