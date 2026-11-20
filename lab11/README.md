@@ -19,6 +19,9 @@ int main() {
 }
 ```
 
+<img width="520" height="302" alt="image" src="https://github.com/user-attachments/assets/a7bc4ba9-756d-4934-a506-7e6dd0a9dbf8" />
+
+
 ### Задание 2 **(1)**
 
 *Функция* **dswap** *должна была обменивать значения своих параметров.* 
