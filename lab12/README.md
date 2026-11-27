@@ -9,12 +9,63 @@
 конструктор. Найдите размер одного объекта этого класса с
 использованием* **sizeof**.
 
+```
+#include <iostream>
+class box {
+private:
+    double length;
+    double widht;
+    double height;
+
+public:
+    box(double l, double w, double h) : length(l), widht(w), height(h) {}
+};
+int main() {
+    box b(2.5, 3.0, 4.0);
+    std::cout << "Размер объекта класса box: " << sizeof(b) << " байт" << std::endl;
+
+    return 0;
+}
+```
+
 ### Задание 2 **(2)**
 
 *Добавьте в класс методы для вычисления объема коробки и
 площади поверхности всех граней. Напишите программу, тестирующую
 работу методов. Проверьте, изменился ли размер одного объекта этого
 класса. Объясните результат*
+
+```
+#include <iostream>
+class box {
+private:
+	double lenght;
+	double width;
+	double height;
+
+
+public:
+	box(double _lenght, double _width, double _height):
+		lenght(_lenght), width(_width), height(_height){
+
+		}
+	double volume();
+	double surface();
+};
+
+double box::volume(){
+	return lenght * width * height;
+}
+double box::surface(){
+	return 2 * (lenght * width + lenght * height + width * height);
+}
+int main(){
+	box b(10, 6, 3);
+	std::cout << "Box volume " << b.volume() << std::endl;
+	std::cout << "Box surface area " << b.surface() << std::endl;
+	std::cout << "Object size = " << sizeof(b) << std::endl;
+}
+```
 
 ### Задание 3 **(2)**
 
@@ -23,6 +74,44 @@
 оба объекта. Не забывайте, что объекты созданные в куче следует
 освобождать.*
 
+```
+#include <iostream>
+class box {
+private:
+    double length;
+    double width;
+    double height;
+public:
+    box(double l = 1.0, double w = 1.0, double h = 1.0) 
+        : length(l), width(w), height(h) {}
+    double getVolume() const {
+        return length * width * height;
+    }
+    void printInfo() const {
+        std::cout << "Коробка [" << length << " x " << width << " x " << height 
+                  << "], объём = " << getVolume() << std::endl;
+    }
+};
+int main() {
+    box* x = new box(2.0, 3.0, 4.0);
+    box* y = new box(5.5, 2.0, 1.5);
+
+    std::cout << "Объект x: ";
+    x->printInfo();
+
+    std::cout << "Объект y: ";
+    y->printInfo();
+
+    std::cout << "Суммарный объём: " << (x->getVolume() + y->getVolume()) << std::endl;
+
+    delete x;
+    delete y;
+
+    x = nullptr;
+    y = nullptr;
+    return 0;
+}
+```
 
 ### Задание 4 **(2)**
 
@@ -64,6 +153,26 @@ private :
 
 Напишите программу для проверки работы методов.*
 
+```
+class Point:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return f"Point({self.x}, {self.y})"
+
+if __name__ == "__main__":
+    p1 = Point(3, 5)
+    p2 = Point(-2.5, 4.0)
+
+    print("Точка 1:", p1)
+    print("Точка 2:", p2)
+
+    text_representation = str(p1)
+    print("Строковое представление:", text_representation)
+
+```
 ### Задание 8 **(2)**
 
 *Напишите программу на Python в которой будет определяться класс*
